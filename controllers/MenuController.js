@@ -10,6 +10,7 @@ const ContactController = require("./ContactController");
           message: "Please choose from an option below: ",
           choices: [
             "Add new contact",
+            "View all contacts",
             "Exit"
           ]
         }
@@ -23,6 +24,9 @@ const ContactController = require("./ContactController");
        switch(response.mainMenuChoice){
          case "Add new contact":
            this.addContact();
+           break;
+         case "View all contacts":
+           this.getContacts();
            break;
          case "Exit":
            this.exit();
@@ -46,6 +50,25 @@ const ContactController = require("./ContactController");
           console.log(err);
           this.main();
         });
+    });
+  }
+
+  getContacts(){
+    this.clear();
+
+    this.book.getContacts().then((contacts) => {
+      for (let contact of contacts) {
+        console.log(`
+        name: ${contact.name}
+        phone number: ${contact.phone}
+        email: ${contact.email}
+        ---------------`
+        );
+      }
+      this.main();
+    }).catch((err) => {
+      console.log(err);
+      this.main();
     });
   }
 
