@@ -46,6 +46,11 @@ const inquirer = require('inquirer');
     return this.contacts.length;
   }
 
+  remindMe(){
+      const str = "Learning is a life-long pursuit.";
+      return str;
+  }
+
   exit(){
     console.log("Thanks for using AddressBloc!");
     process.exit();
