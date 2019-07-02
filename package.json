@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/JackWSargent/AddressBloc/issues"
   },
-  "homepage": "https://github.com/JackWSargent/AddressBloc#readme"
+  "homepage": "https://github.com/JackWSargent/AddressBloc#readme",
+  "dependencies": {
+    "inquirer": "^5.1.0"
+  }
 }
