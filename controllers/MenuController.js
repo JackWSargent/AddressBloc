@@ -10,6 +10,7 @@ const inquirer = require('inquirer');
           message: "Please choose from an option below: ",
           choices: [
             "Add new contact",
+            "Get Date",
             "Exit"
           ]
         }
@@ -17,10 +18,26 @@ const inquirer = require('inquirer');
       this.contacts = [];
    }
 
+   getDate(){
+       const date = new Date();
+       let hours = date.getHours();
+       let ampm = '';
+       if(hours > 12) {
+           hours = hours - 12;
+           ampm = 'PM';
+       } else {
+           ampm = 'AM'
+       }
+    console.log(hours + ":" + (date.getMinutes()) + " " + ampm);
+   }
+
    main(){
     console.log(`Welcome to AddressBloc!`);
      inquirer.prompt(this.mainMenuQuestions).then((response) => {
        switch(response.mainMenuChoice){
+         case "Get Date":
+            this.getDate();
+            break;
          case "Add new contact":
            this.addContact();
            break;
